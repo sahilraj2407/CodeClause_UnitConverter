@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+    <style>
+        /* Basic CSS styles for the unit converter */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .converter {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function convert() {
+            // Get input values
+            var kilometers = document.getElementById("kilometers").value;
+            var miles = document.getElementById("miles").value;
+            
+            // Check which field is being updated and perform the corresponding conversion
+            if (kilometers !== "") {
+                miles = kilometers * 0.621371;
+                document.getElementById("miles").value = miles.toFixed(2);
+            } else if (miles !== "") {
+                kilometers = miles * 1.60934;
+                document.getElementById("kilometers").value = kilometers.toFixed(2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <div class="converter">
+        <label for="kilometers">Kilometers:</label>
+        <input type="number" id="kilometers" placeholder="Enter value in kilometers">
+        
+        <label for="miles">Miles:</label>
+        <input type="number" id="miles" placeholder="Enter value in miles">
+        
+        <button onclick="convert()">Convert</button>
+    </div>
+</body>
+</html>
